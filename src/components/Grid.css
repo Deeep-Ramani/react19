@@ -1,0 +1,19 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 1), 1fr);
+  gap: var(--grid-gap, 1.5rem);
+}
+
+@media (max-width: 1024px) {
+  .grid[style*="--grid-cols: 3"],
+  .grid[style*="--grid-cols: 4"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: calc(var(--grid-gap, 1.5rem) * 0.75);
+  }
+}
